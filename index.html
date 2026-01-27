@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surf - Payroll That Doesn't Waste 4 Hours Every Two Weeks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===================================
+           SURF LANDING PAGE STYLES
+           Brand Colors: Navy (#181D27), Purple (#7A5AF8), Green (#61CE70)
+           =================================== */
+
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand Colors */
+            --navy: #181D27;
+            --purple: #7A5AF8;
+            --green: #61CE70;
+            --light-gray: #F8F9FC;
+            --border-gray: #D5D7DA;
+            --white: #FFFEFE;
+
+            /* Typography */
+            --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --spacing-xxl: 6rem;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(24, 29, 39, 0.08);
+            --shadow-md: 0 4px 16px rgba(24, 29, 39, 0.12);
+            --shadow-lg: 0 8px 32px rgba(24, 29, 39, 0.16);
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--navy);
+            background-color: var(--white);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* ===================================
+           NAVIGATION
+           =================================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-gray);
+            padding: var(--spacing-sm) 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        /* ===================================
+           BUTTONS
+           =================================== */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--purple);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #6847d6;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--purple);
+            border: 2px solid var(--purple);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--purple);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--green);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background-color: #4eb85f;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 1.125rem;
+        }
+
+        /* ===================================
+           HERO SECTION
+           =================================== */
+        .hero {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(122, 90, 248, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-lg);
+            color: var(--navy);
+        }
+
+        .problem-list {
+            background-color: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .pain-points {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-points li {
+            padding: var(--spacing-sm) 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.125rem;
+        }
+
+        .pain-points li::before {
+            content: '•';
+            color: var(--purple);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0.5rem;
+        }
+
+        .hero-subtext {
+            font-size: 1.375rem;
+            font-weight: 500;
+            margin: var(--spacing-lg) 0;
+            color: var(--navy);
+        }
+
+        .founder-story {
+            background-color: var(--light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            text-align: left;
+        }
+
+        .founder-photo {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .photo-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: var(--spacing-sm);
+            box-shadow: var(--shadow-md);
+        }
+
+        .founder-name {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .founder-text {
+            flex: 1;
+        }
+
+        .founder-text p {
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .founder-text strong {
+            color: var(--purple);
+        }
+
+        /* ===================================
+           TRANSPARENCY SECTION
+           =================================== */
+        .transparency-section {
+            padding: var(--spacing-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .transparency-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--navy);
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .status-card {
+            background-color: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .status-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .status-card ul {
+            list-style: none;
+        }
+
+        .status-card li {
+            padding: var(--spacing-xs) 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .status-card.working li::before {
+            content: '✓';
+            color: var(--green);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .status-card.coming li::before {
+            content: '→';
+            color: var(--purple);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .status-card.not-yet li::before {
+            content: '○';
+            color: var(--border-gray);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* Fit Section */
+        .fit-section {
+            margin: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .fit-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: var(--navy);
+        }
+
+        .fit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fit-card {
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: left;
+        }
+
+        .fit-card.yes {
+            border-color: var(--green);
+            background-color: rgba(97, 206, 112, 0.05);
+        }
+
+        .fit-card.no {
+            border-color: #ff6b6b;
+            background-color: rgba(255, 107, 107, 0.05);
+        }
+
+        .fit-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .fit-card ul {
+            list-style: none;
+        }
+
+        .fit-card li {
+            padding: var(--spacing-xs) 0;
+            font-size: 1.125rem;
+        }
+
+        /* Bootstrap Benefits */
+        .bootstrap-benefits {
+            margin-top: var(--spacing-xl);
+        }
+
+        .bootstrap-benefits h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--navy);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--purple);
+        }
+
+        .benefit-card strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--purple);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .benefit-card p {
+            color: var(--navy);
+            opacity: 0.8;
+        }
+
+        /* ===================================
+           FOUNDER MOAT SECTION
+           =================================== */
+        .founder-moat {
+            padding: var(--spacing-xxl) 0;
+            background-color: var(--light-gray);
+        }
+
+        .founder-moat h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--navy);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .comparison-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .comparison-card.surf {
+            border: 2px solid var(--green);
+        }
+
+        .comparison-card.competitors {
+            border: 2px solid #ff6b6b;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: var(--spacing-sm) 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.125rem;
+        }
+
+        .comparison-list li.negative::before {
+            content: '✗';
+            color: #ff6b6b;
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .comparison-list li.positive::before {
+            content: '✓';
+            color: var(--green);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .example-box {
+            background-color: var(--white);
+            border-left: 4px solid var(--purple);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .example-box p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        /* Founder Bio */
+        .founder-bio {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .founder-bio h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .founder-bio p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-options {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        /* ===================================
+           PRICING SECTION
+           =================================== */
+        .pricing-section {
+            padding: var(--spacing-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .pricing-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--navy);
+        }
+
+        .pricing-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .pricing-card {
+            background-color: var(--light-gray);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .surf-pricing {
+            border-color: var(--green);
+            background-color: rgba(97, 206, 112, 0.05);
+        }
+
+        .pricing-header h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--purple);
+        }
+
+        .price span {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--navy);
+        }
+
+        .additional-fee {
+            margin-top: var(--spacing-sm);
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .pricing-explanation {
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-explanation h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .pricing-explanation p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        /* Included Grid */
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .included-section,
+        .not-included-section {
+            background-color: var(--light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+        }
+
+        .included-section h3,
+        .not-included-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .included-list,
+        .not-included-list {
+            list-style: none;
+        }
+
+        .included-list li,
+        .not-included-list li {
+            padding: var(--spacing-sm) 0;
+            font-size: 1.125rem;
+        }
+
+        /* ===================================
+           FIRST 10 CUSTOMERS SECTION
+           =================================== */
+        .first-10-section {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, var(--purple) 0%, #6847d6 100%);
+            color: var(--white);
+        }
+
+        .first-10-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .first-10-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+        }
+
+        .perks-list {
+            list-style: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-xl);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .perks-list li {
+            padding: var(--spacing-md) 0;
+            font-size: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .perks-list li:last-child {
+            border-bottom: none;
+        }
+
+        .why-only-10 {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .why-only-10 h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .why-only-10 p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .spots-remaining {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: var(--spacing-lg) 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(10px);
+        }
+
+        .spots-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        /* ===================================
+           CONTACT SECTION
+           =================================== */
+        .contact-section {
+            padding: var(--spacing-xxl) 0;
+            background-color: var(--light-gray);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--navy);
+        }
+
+        .contact-section > .container > p {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xl);
+            color: var(--navy);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        /* ===================================
+           FOOTER
+           =================================== */
+        .footer {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--purple);
+        }
+
+        .footer-links {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN
+           =================================== */
+
+        /* Tablet (768px and below) */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-xl: 3rem;
+                --spacing-xxl: 4rem;
+            }
+
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .navbar .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: var(--spacing-xl) 0;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .founder-story {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .founder-text p {
+                font-size: 1rem;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-options {
+                flex-direction: column;
+            }
+
+            .contact-options .btn {
+                width: 100%;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile (480px and below) */
+        @media (max-width: 480px) {
+            :root {
+                --spacing-lg: 2rem;
+                --spacing-xl: 2.5rem;
+                --spacing-xxl: 3rem;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .hero-subtext {
+                font-size: 1.125rem;
+            }
+
+            .pain-points li {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .btn-large {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+
+            .transparency-section h2,
+            .founder-moat h2,
+            .pricing-section h2,
+            .first-10-section h2,
+            .contact-section h2 {
+                font-size: 1.75rem;
+            }
+
+            .status-card h3,
+            .fit-section h3,
+            .bootstrap-benefits h3 {
+                font-size: 1.25rem;
+            }
+
+            .photo-placeholder {
+                width: 100px;
+                height: 100px;
+            }
+
+            .photo-placeholder svg {
+                width: 100px;
+                height: 100px;
+            }
+
+            .perks-list li {
+                font-size: 1rem;
+            }
+
+            .spots-number {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: var(--spacing-md);
+            }
+
+            .price {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* Large Desktop (1400px and above) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+
+        /* Selection Color */
+        ::selection {
+            background-color: var(--purple);
+            color: var(--white);
+        }
+
+        /* Focus Styles for Accessibility */
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 2px solid var(--purple);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Surf</div>
+                <div class="nav-links">
+                    <a href="#problem">The Problem</a>
+                    <a href="#where-we-are">Where We Are</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#first-10">First 10</a>
+                </div>
+                <a href="#contact" class="btn btn-primary">Talk to Founder</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Problem First -->
+    <section class="hero" id="problem">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Payroll Shouldn't Take 4 Hours Every Two Weeks</h1>
+
+                <div class="problem-list">
+                    <p class="intro-text">If you're a small business owner, you know this pain:</p>
+                    <ul class="pain-points">
+                        <li>Researching tax rules for each state</li>
+                        <li>Cross-checking W-4s, time sheets, PTO, deductions</li>
+                        <li>Filing with 6 different government agencies</li>
+                        <li>Constant worry about penalties</li>
+                    </ul>
+                </div>
+
+                <p class="hero-subtext">You started a business to build products, not become a payroll expert.</p>
+
+                <div class="founder-story">
+                    <div class="founder-photo">
+                        <div class="photo-placeholder">
+                            <!-- Replace with actual founder photo -->
+                            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                                <circle cx="60" cy="60" r="60" fill="#7A5AF8"/>
+                                <circle cx="60" cy="45" r="20" fill="white"/>
+                                <path d="M30 100C30 80 40 70 60 70C80 70 90 80 90 100" fill="white"/>
+                            </svg>
+                        </div>
+                        <p class="founder-name">Founder Name</p>
+                    </div>
+                    <div class="founder-text">
+                        <p><strong>That's why I built Surf.</strong></p>
+                        <p>I'm [Name], and I've run 3 companies. Every time, payroll was 4 hours of stress. Surf automates it all—<strong>10 minutes instead of 4 hours.</strong></p>
+                    </div>
+                </div>
+
+                <a href="#contact" class="btn btn-large btn-primary">Book a Call With Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where We Are Today -->
+    <section class="transparency-section" id="where-we-are">
+        <div class="container">
+            <h2>Where Surf Is Today (January 2025)</h2>
+
+            <div class="status-grid">
+                <div class="status-card working">
+                    <div class="status-icon">✅</div>
+                    <h3>What's Working</h3>
+                    <ul>
+                        <li>Payroll for 5-50 person companies</li>
+                        <li>All 50 states tax calculations</li>
+                        <li>Federal & state tax filing</li>
+                        <li>QuickBooks integration</li>
+                    </ul>
+                </div>
+
+                <div class="status-card coming">
+                    <div class="status-icon">⚠️</div>
+                    <h3>Coming Q2 2026</h3>
+                    <ul>
+                        <li>Benefits administration</li>
+                        <li>Time tracking</li>
+                        <li>Contractor payments (1099s)</li>
+                    </ul>
+                </div>
+
+                <div class="status-card not-yet">
+                    <div class="status-icon">❌</div>
+                    <h3>What We Don't Do Yet</h3>
+                    <ul>
+                        <li>Multi-entity payroll</li>
+                        <li>International payroll</li>
+                        <li>HR management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fit-section">
+                <h3>Is Surf Right For You?</h3>
+                <div class="fit-grid">
+                    <div class="fit-card yes">
+                        <h4>✅ YES if:</h4>
+                        <ul>
+                            <li>5-50 employees</li>
+                            <li>Want founder access</li>
+                            <li>Focused product</li>
+                        </ul>
+                    </div>
+                    <div class="fit-card no">
+                        <h4>❌ NO if:</h4>
+                        <ul>
+                            <li>Need benefits today</li>
+                            <li>100+ employees</li>
+                            <li>24/7 phone support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bootstrap-benefits">
+                <h3>Why Bootstrap is Better</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <strong>50% less expensive</strong>
+                        <p>No VC overhead</p>
+                    </div>
+                    <div class="benefit-card">
+                        <strong>Direct founder access</strong>
+                        <p>vs sales team</p>
+                    </div>
+                    <div class="benefit-card">
+                        <strong>Your feedback shapes roadmap</strong>
+                        <p>Real influence</p>
+                    </div>
+                    <div class="benefit-card">
+                        <strong>Fast fixes</strong>
+                        <p>Hours, not quarters</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Access Moat -->
+    <section class="founder-moat">
+        <div class="container">
+            <h2>Why Founder-Led Matters</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card competitors">
+                    <h3>With Gusto/Rippling</h3>
+                    <ul class="comparison-list">
+                        <li class="negative">Talk to sales rep who's never run payroll</li>
+                        <li class="negative">Feature requests disappear</li>
+                        <li class="negative">24-48 hour support tickets</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card surf">
+                    <h3>With Surf</h3>
+                    <ul class="comparison-list">
+                        <li class="positive">Talk to me (run 3 companies, done payroll 100+ times)</li>
+                        <li class="positive">Feature request → built next week</li>
+                        <li class="positive">2-hour response time</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example:</strong> Customer needed custom contractor payment schedule. Gusto said "not possible." I built it in 3 days.</p>
+            </div>
+
+            <div class="founder-bio">
+                <h3>About the Founder</h3>
+                <p>I've started 3 companies. Payroll was always the worst part—4 hours of stress every two weeks. After my third company, I built Surf: the payroll tool I wish I'd had.</p>
+                <p><strong>I personally onboard every customer and answer every question.</strong></p>
+                <div class="contact-options">
+                    <a href="#contact" class="btn btn-primary">Book My Calendar</a>
+                    <a href="mailto:founder@runsurf.co" class="btn btn-secondary">Email: founder@runsurf.co</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2>Pricing: 50% Less Than Gusto</h2>
+
+            <div class="pricing-comparison">
+                <div class="pricing-card surf-pricing">
+                    <div class="pricing-header">
+                        <h3>Surf</h3>
+                        <div class="price">$XX<span>/employee/month</span></div>
+                    </div>
+                </div>
+
+                <div class="pricing-card competitor-pricing">
+                    <div class="pricing-header">
+                        <h3>Gusto</h3>
+                        <div class="price">$XX<span>/employee/month</span></div>
+                        <p class="additional-fee">+ $40 base fee</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-explanation">
+                <h3>Why are we cheaper?</h3>
+                <p>No 200-person sales team, no SF office, no VC burn rate. Just me (founder) and one engineer.</p>
+            </div>
+
+            <div class="included-grid">
+                <div class="included-section">
+                    <h3>What's Included</h3>
+                    <ul class="included-list">
+                        <li class="included">✅ Unlimited payroll runs</li>
+                        <li class="included">✅ All 50 state tax filings</li>
+                        <li class="included">✅ W-2/1099 generation</li>
+                        <li class="included">✅ QuickBooks integration</li>
+                        <li class="included">✅ Direct founder support</li>
+                    </ul>
+                </div>
+
+                <div class="not-included-section">
+                    <h3>What's NOT Included (Yet)</h3>
+                    <ul class="not-included-list">
+                        <li class="not-included">❌ Benefits (Coming Q2)</li>
+                        <li class="not-included">❌ Time tracking (Coming Q3)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First 10 Customers -->
+    <section class="first-10-section" id="first-10">
+        <div class="container">
+            <div class="first-10-content">
+                <h2>Our First 10 Customers</h2>
+                <p class="subtitle">Looking for our first 10 customers. You get:</p>
+
+                <ul class="perks-list">
+                    <li>✅ <strong>50% off forever</strong> (not just year one)</li>
+                    <li>✅ <strong>Direct Slack channel with founder</strong></li>
+                    <li>✅ <strong>Your feedback shapes roadmap</strong></li>
+                    <li>✅ <strong>Named as founding customer</strong> (logo, case study)</li>
+                </ul>
+
+                <div class="why-only-10">
+                    <h3>Why only 10?</h3>
+                    <p>I'm personally onboarding everyone. That's my capacity while building the product. After 10, pricing increases.</p>
+                </div>
+
+                <div class="spots-remaining">
+                    <span class="spots-number">7</span> spots left
+                </div>
+
+                <a href="#contact" class="btn btn-large btn-accent">Claim Your Spot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Ready to Save 4 Hours Every Two Weeks?</h2>
+            <p>Book a 15-minute call with me. I'll show you how Surf works and answer all your questions.</p>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Work Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="company" name="company" placeholder="Company Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="employees" name="employees" placeholder="Number of Employees" required>
+                    </div>
+                    <button type="submit" class="btn btn-large btn-primary">Schedule Call</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Surf</div>
+                <div class="footer-links">
+                    <a href="mailto:founder@runsurf.co">founder@runsurf.co</a>
+                </div>
+                <p class="footer-text">© 2025 Surf. Built by a founder, for founders.</p>
+                <p class="footer-text">Built by Sid - Jan 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const employees = document.getElementById('employees').value;
+
+            // Here you would typically send this data to your backend
+            console.log('Form submitted:', { name, email, company, employees });
+
+            // Show success message (you can customize this)
+            alert('Thanks for your interest! We\'ll be in touch soon.');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
