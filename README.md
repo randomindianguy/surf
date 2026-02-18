@@ -1,4 +1,4 @@
-View on: https://sid-surf.netlify.app/
+View on: https://sid-surf.vercel.app/
 
 ## TL;DR
 
